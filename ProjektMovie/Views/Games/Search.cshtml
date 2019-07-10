@@ -1,0 +1,47 @@
+﻿
+@model IEnumerable<ProjektMovie.Models.Game>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2></h2>
+
+@MyHelpers.MakeNote("Wyszukujesz tylko po tytule")
+
+<h2></h2>
+
+@{
+    Html.RenderPartial("_Search");
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Producent Gier", "Search", new { sortOrder = ViewBag.ForeignSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Tytuł", "Search", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Dat Wydania", "Search", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameDeveloper.nazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.data_wydania)
+        </td>
+    </tr>
+    }
+
+</table>

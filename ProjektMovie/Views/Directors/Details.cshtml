@@ -1,0 +1,50 @@
+﻿@model ProjektMovie.Models.Director
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Director</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rok_urodzenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rok_urodzenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kraj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kraj)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

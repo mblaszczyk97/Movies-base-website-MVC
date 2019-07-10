@@ -1,0 +1,65 @@
+﻿@using System.Web.Mvc;
+
+
+@*Te dwie metody są po to by można było wywoływać metody z @Html *@
+@functions
+{
+    private static new HtmlHelper<object> Html
+    {
+        get { return ((WebViewPage)CurrentPage).Html; }
+    }
+
+    private static UrlHelper Url
+    {
+        get { return ((WebViewPage)CurrentPage).Url; }
+    }
+}
+
+@helper MakeNote(string content) {
+  <div class="note" 
+       style="border: 1px solid black; width: 90%; padding: 5px; margin-left: 15px;">
+    <p>
+      <strong>UWAGA</strong>&nbsp;&nbsp; @content
+    </p>
+  </div>
+}
+
+
+@helper HorizontalMenu(params string[] menuListArray) {
+
+string[] menuItem;
+string menulink = "";
+string menuLIitems = "";
+@*Lenistwo - powinno być w osobnym pliku CSS *@
+<style>
+  #horizontalMenu{height:28px;background-color:lightgray;
+      font-family:"Segoe UI";font-size:11pt;font-weight:bold;
+      color:white;}
+  #horizontalMenu ul {margin:0px; padding:0px;}
+  #horizontalMenu ul li{
+    display:inline;height:30px;float:left;list-style:none;
+      margin-left:15px;position:relative;
+      border-right:2px solid white;padding:6px;
+  }
+  #horizontalMenu li a {color:#fff; text-decoration:none;}
+  #horizontalMenu li a:hover {color:black;}    
+</style>
+     @*Tworzymy kod HTMLowy który po wywołaniu Html.raw daje nam menu wedlug podanych argumentów przy wywołaniu*@
+     <div id="horizontalMenu">
+        @for(int i = 0; i < menuListArray.Length; i++){
+          menulink = "";
+          if(menuListArray[i].Contains("|")){
+            menuItem = menuListArray[i].Split( new Char[]{'|'});
+            menulink = 
+                String.Format("<a href=\"{1}\">{0}</a>", 
+                    menuItem[0], 
+                    menuItem[1]);
+          }
+          else{
+            menulink = menuListArray[i];
+          }
+          menuLIitems += "<li>" + menulink + "</li>";
+      }
+      <ul>@Html.Raw(menuLIitems)</ul>  
+      </div>
+}

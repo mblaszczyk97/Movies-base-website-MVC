@@ -1,0 +1,13 @@
+﻿
+@model List<ProjektMovie.Models.GameDeveloper>
+
+@{
+    string display = "";
+    foreach (var item in Model)
+    {
+        display += item.nazwa + " (" + item.data_rozpoczecia.ToString() + " " + "), ";
+    }
+    display = display.Remove(display.LastIndexOf(","));
+}
+
+<span>@display</span>

@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+
+@if (ViewBag.displayMenu == "Yes")
+{
+    <h1>Witaj Administratorze - masz dostęp do narzędzi moderskich: </h1>
+
+    @*
+    <p>@Html.ActionLink("Zarządzaj Rolami:         ", "Index", "AspNetRoles")</p>
+    <p>@Html.ActionLink("Zarządzaj Użytkownikami:  ", "Index", "AspNetUsers")</p>
+    <p>@Html.ActionLink("Przypisz rolę do użytkownika:         ", "Index", "AspNetUserRoles")</p>
+    <p>@Html.ActionLink("Zarządzaj Bazą Reżyserów: ", "Index", "Directors")</p>
+    <p>@Html.ActionLink("Zarządzaj Bazą Filmów:    ", "Index", "Movies")</p>
+    <p>@Html.ActionLink("Zarządzaj Bazą Producentów Gier:    ", "Index", "GameDevelopers")</p>
+    <p>@Html.ActionLink("Zarządzaj Bazą Gier:    ", "Index", "Games")</p>
+    *@
+
+
+
+    @MyHelpers.HorizontalMenu(
+    "Główna|https://projektmovie.azurewebsites.net/eu-pl/Home/Index",
+    "Role|https://projektmovie.azurewebsites.net/eu-pl/Role",
+    "Użytkownicy|https://projektmovie.azurewebsites.net/eu-pl/Uzytkownicy",
+    "Role Użytkowników|https://projektmovie.azurewebsites.net/eu-pl/RoleUzytkownikow",
+    "Reżyserzy|https://projektmovie.azurewebsites.net/eu-pl/Rezyserzy",
+    "Filmy|https://projektmovie.azurewebsites.net/eu-pl/Filmy",
+    "Producenci Gier|https://projektmovie.azurewebsites.net/eu-pl/DeweloperzyGier",
+    "Gry|https://projektmovie.azurewebsites.net/eu-pl/Gry")
+
+}
+else
+{
+    <h2>  Witaj <strong>@ViewBag.Name</strong> Niedługo coś tu będzie, a teraz ciesz się z możliwości przeglądania filmów i gier. </h2>
+    @*
+
+    <p>@Html.ActionLink("Zobacz Filmy:    ", "Search", "Movies")</p>
+    <p>@Html.ActionLink("Zobacz Gry:    ", "Search", "Games")</p>
+
+    *@
+
+    @MyHelpers.HorizontalMenu(
+    "Główna|https://projektmovie.azurewebsites.net/eu-pl/Home/Index"
+    )
+}  

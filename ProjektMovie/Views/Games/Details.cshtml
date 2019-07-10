@@ -1,0 +1,45 @@
+﻿@model ProjektMovie.Models.Game
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Info</h2>
+
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GameDeveloper.nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameDeveloper.nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data_wydania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_wydania)
+        </dd>
+
+        @{
+            Html.RenderPartial("_Partial");
+        }
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

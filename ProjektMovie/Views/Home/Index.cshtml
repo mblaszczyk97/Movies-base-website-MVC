@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="jumbotron">
+    <h1>Witaj</h1>
+    <p class="lead">Witaj na stronie poświęconej filmom. Zapraszamy do założenia konta i dołączenia do naszej społeczności</p>
+    <div>
+        @Html.ActionLink("Poczytaj o nas", "About")
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2><img src="https://media.giphy.com/media/13Nc3xlO1kGg3S/source.gif" style="width:400px;height:200px;border:0;"></h2>
+        <p>
+            Nasz kanał na platformie Youtube. Tutaj znajdziesz nasze materiały.
+        </p>
+        <p><a class="btn btn-default" href="https://youtube.pl">YOUTUBE &raquo;</a></p>
+    </div>
+
+    <div class="col-md-4">
+        <h2><img src="https://images.fatherly.com/wp-content/uploads/2018/04/best-video-games.jpg" style="width:400px;height:200px;border:0;"></h2>
+        <p>
+            Jeżeli chcesz przejść na najlepsze forum internetowe o grach zapraszam.
+        </p>
+        <p><a class="btn btn-default" href="https://arhn.eu/forum">ARHN.EU - to portal jest o grach &raquo;</a></p>
+    </div>
+</div>
+

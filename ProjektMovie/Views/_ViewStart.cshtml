@@ -1,0 +1,10 @@
+﻿@{
+    if (User.IsInRole("NormalUser") || User.IsInRole("Administrator") || User.IsInRole("Moderator"))
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_NoLayout.cshtml";
+    }
+}
